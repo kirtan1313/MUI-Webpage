@@ -1,0 +1,53 @@
+
+@media (min-width: 1025px){
+    .css-uwv0qp{
+        /* justify-content: space-between !important; */
+        gap: 10px !important;
+        padding: 24px 24px !important;
+    }
+    .css-v2b3ow-MuiPaper-root{
+        width: 275px !important;
+    }
+}
+@media (max-width: 1024px){
+    .css-v2b3ow-MuiPaper-root{
+        width: 230px !important;
+    }
+    .css-uwv0qp{
+        justify-content: start !important;
+        gap: 10px !important;
+        padding: 24px 0 !important;
+    }
+}
+
+
+@media (max-width: 975px) {
+    .css-v2b3ow-MuiPaper-root{
+        width: 240px !important;
+    }
+    .css-uwv0qp{
+        justify-content: space-between !important;
+        padding: 24px 0 !important;
+        gap: 10px !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .css-uwv0qp{
+        padding: 0 !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .css-uwv0qp{
+        justify-content: center !important;
+        padding: 24px 24px !important;
+
+       
+    }
+    .css-v2b3ow-MuiPaper-root{
+        width: 100% !important;
+    }
+}

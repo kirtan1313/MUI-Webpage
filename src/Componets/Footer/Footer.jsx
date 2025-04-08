@@ -88,7 +88,7 @@ function Footer() {
                 display: 'grid',
                 gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' },
                 gap: 4,
-                padding: '40px',
+                padding:{xs:'10px',md:'40px'},
                 // backgroundColor: '#f5f5f5',
             }}
         >

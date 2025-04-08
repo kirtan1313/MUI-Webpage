@@ -1,11 +1,10 @@
-import { Box, Typography, Button, Divider } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
 import React from 'react';
 import BannerImg1 from '../../assets/Imges/product-thumb-1.png';
 import BannerImg2 from '../../assets/Imges/ad-image-1.png';
 import BannerImg3 from '../../assets/Imges/ad-image-2.png';
 import '@fontsource/nunito-sans';
 import './Banner.css'
-
 
 function Banner() {
     return (
@@ -17,6 +16,7 @@ function Banner() {
                 padding: 3,
             }}
         >
+            {/* Left Banner */}
             <Box
                 sx={{
                     position: 'relative',
@@ -24,34 +24,61 @@ function Banner() {
                     borderRadius: '12px',
                     padding: 4,
                     display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
                     alignItems: 'center',
-                    justifyContent: 'space-between',
-                    height: { xs: '300px', md: '600px' },
+                    height: { xs: 'auto', md: '600px' },
                     overflow: 'hidden',
                 }}
             >
                 {/* Text Content */}
-                <Box sx={{ maxWidth: '50%', fontFamily: 'Nunito Sans, sans-serif' }}>
-                    <Typography sx={{ color: '#E8A31C', fontSize: '36px' }}>
+                <Box
+                    sx={{
+                        maxWidth: { xs: '100%', md: '50%' },
+                        textAlign: { xs: 'center', md: 'left' },
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: '#E8A31C',
+                            fontSize: { xs: '24px', md: '36px' },
+                        }}
+                    >
                         100% Natural
                     </Typography>
-                    <Typography sx={{ color: '#222', fontSize: '45px', lineHeight: 1.2, paddingTop: '20px' }}>
+                    <Typography
+                        sx={{
+                            color: '#222',
+                            fontSize: { xs: '28px', md: '45px' },
+                            lineHeight: 1.2,
+                            pt: 2,
+                        }}
+                    >
                         Fresh Smoothie & Summer Juice
                     </Typography>
-                    <Typography sx={{ color: '#555', fontSize: '16px', pt: 3, lineHeight: 2 }}>
+                    <Typography
+                        sx={{
+                            color: '#555',
+                            fontSize: { xs: '14px', md: '16px' },
+                            pt: 3,
+                            lineHeight: 2,
+                        }}
+                    >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.
                     </Typography>
-                    <Box sx={{ pt: 5 }}>
+                    <Box sx={{ pt: { xs: 3, md: 5 } }}>
                         <Button
                             variant="outlined"
                             sx={{
-                                borderColor: '#222', color: '#222', padding: '15px',
-                                fontSize: '16px', transition: 'all 0.3s'
-                                , '&:hover': {
+                                borderColor: '#222',
+                                color: '#222',
+                                padding: { xs: '10px 20px', md: '15px' },
+                                fontSize: '16px',
+                                transition: 'all 0.3s',
+                                '&:hover': {
                                     backgroundColor: '#000',
                                     color: '#fff',
-                                    borderColor: '#000'
-                                }
+                                    borderColor: '#000',
+                                },
                             }}
                         >
                             SHOP NOW
@@ -59,100 +86,101 @@ function Banner() {
                     </Box>
                 </Box>
 
-                {/* Product Image */}
+                {/* Image */}
                 <Box
                     component="img"
                     src={BannerImg1}
                     alt="Smoothie Juice"
                     sx={{
-                        width: { xs: '180px', md: '300px' },
+                        width: { xs: '100%', md: '299px' },
                         height: 'auto',
                         objectFit: 'contain',
-                        position: 'absolute',
-                        right: '20%',
-                        transform: 'translateX(50%)',
-                        bottom: '50%',
-                        translate: '0 50%',
+                        mt: { xs: 3, md: 0 },
+                        position: { md: 'absolute' },
+                        right: { md: '10%' },
+                        bottom: { md: '50%' },
+                        transform: { md: 'translateY(50%)' },
                     }}
                 />
             </Box>
 
-
-            {/* Right Side - Discount Banners */}
+            {/* Right Banners */}
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                {/* Fruits & Vegetables Banner */}
+                {/* First Right Banner */}
                 <Box
                     sx={{
                         backgroundColor: '#eef5e5',
                         borderRadius: '12px',
-                        height: { xs: '180px', md: '50%' },
-                        padding: 3,
-                        position: 'relative',
-                        overflow: 'hidden',
+                        height: { xs: 'auto', md: '50%' },
+                        // padding: 3,
                         display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' },
                         alignItems: 'center',
-                        justifyContent: 'space-between',
+                        overflow: 'hidden',
                     }}
                 >
-                    {/* Left Text */}
-                    <Box sx={{ zIndex: 2 }}>
-                        <Typography sx={{ fontSize: '36px', color: '#222' }}>
+                    {/* Text Content */}
+                    <Box sx={{ textAlign: { xs: 'center', md: 'left' },padding:3 }}>
+                        <Typography sx={{ fontSize: { xs: '24px', md: '36px' }, color: '#222' }}>
                             20% Off
                         </Typography>
-                        <Typography sx={{ fontSize: '12px', color: 'black',pt:2,pb:2 }}>
-                           
-                            ----------  SALE
+                        <Typography
+                            sx={{ fontSize: { xs: '12px', md: '16px' }, color: 'black', pt: 2 }}
+                        >
+                            SALE
                         </Typography>
-                        <Typography sx={{ fontSize: '30px',  fontWeight:600, color: '#222' }}>
-                            Fruits & 
-                            <Box>Vegetables</Box>
+                        <Typography
+                            sx={{ fontSize: { xs: '20px', md: '30px' }, color: '#222', fontWeight: 600 }}
+                        >
+                            Fruits & Vegetables
                         </Typography>
                         <Typography sx={{ fontSize: '16px', color: '#777', mt: 1 }}>
                             Shop Collection →
                         </Typography>
                     </Box>
 
-                    {/* Right Image */}
+                    {/* Image */}
                     <Box
                         component="img"
                         src={BannerImg2}
                         alt="Fruits & Vegetables"
                         sx={{
-                            position: 'absolute',
-                            right: '53px',
-                            bottom: 0,
-                            height: '100%',
-                            maxHeight: '230px',
+                            width: { xs: '100%', md: '200px' },
+                            height: 'auto',
                             objectFit: 'contain',
-                            transform: 'translateX(20%)',
-                            zIndex: 1,
+                            mt: { xs: 3, md: 0 },
                         }}
                     />
                 </Box>
 
-                {/* Baked Products Banner */}
+                {/* Second Right Banner */}
                 <Box
                     sx={{
                         backgroundColor: '#F9EBE7',
                         borderRadius: '12px',
-                        height: { xs: '180px', md: '50%' },
-                        padding: 3,
-                        position: 'relative',
-                        overflow: 'hidden',
+                        height: { xs: 'auto', md: '50%' },
+                        // padding: 3,
                         display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' },
                         alignItems: 'center',
-                        justifyContent: 'space-between',
+                        overflow: 'hidden',
+                        alignItems:'end',
+                        justifyContent:'space-between'
                     }}
                 >
-                    {/* Left Text */}
-                    <Box sx={{ zIndex: 2 }}>
-                        <Typography sx={{ fontSize: '36px', color: '#222' }}>
+                    {/* Text Content */}
+                    <Box sx={{ textAlign: { xs: 'center', md: 'left' } ,padding:3}}>
+                        <Typography sx={{ fontSize: { xs: '24px', md: '36px' }, color: '#222' }}>
                             15% Off
                         </Typography>
-                        <Typography sx={{ fontSize: '12px', color: 'black',pt:2,pb:2  }}>
-                            ------- SALE
-                            </Typography>
-                        <Typography sx={{ fontSize: '30px', fontWeight:500, color: '#222' }}>
+                        <Typography
+                            sx={{ fontSize: { xs: '12px', md: '16px' }, color: 'black', pt: 2 }}
+                        >
+                            SALE
+                        </Typography>
+                        <Typography
+                            sx={{ fontSize: { xs: '20px', md: '30px' }, color: '#222', fontWeight: 500 }}
+                        >
                             Baked Products
                         </Typography>
                         <Typography sx={{ fontSize: '16px', color: '#777', mt: 1 }}>
@@ -160,26 +188,20 @@ function Banner() {
                         </Typography>
                     </Box>
 
-                    {/* Right Image */}
+                    {/* Image */}
                     <Box
                         component="img"
                         src={BannerImg3}
                         alt="Baked Products"
                         sx={{
-                            position: 'absolute',
-                            right: '53px',
-                            bottom: 0,
-                            height: '100%',
-                            maxHeight: '230px',
+                            width: { xs: '100%', md: '200px' },
+                            height: 'auto',
                             objectFit: 'contain',
-                            transform: 'translateX(20%)',
-                            zIndex: 1,
+                            mt: { xs: 3, md: 0 },
                         }}
                     />
                 </Box>
             </Box>
-
-
         </Box>
     );
 }

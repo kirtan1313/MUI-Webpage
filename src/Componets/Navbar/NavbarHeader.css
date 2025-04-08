@@ -1,9 +1,20 @@
-.css-w76bbz-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
-    padding:16.5px 0 !important;
-}
-Box > Typography{
+.menu-pad {
+    padding: 8px 16px !important;
+  }
+  
+  .responsive-menu > Typography {
     color: gray;
-}
-Box > Typography:hover{
-color: black;
-}
+  }
+  
+  .responsive-menu > Typography:hover {
+    color: black;
+  }
+  
+
+  @media (max-width: 1024px){
+    
+    .css-zxsdye{
+        justify-content: space-between;
+    }
+
+  } 

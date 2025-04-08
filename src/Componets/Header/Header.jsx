@@ -1,132 +1,175 @@
+import React, { useState } from 'react';
 import {
     AppBar,
     Box,
     Divider,
     IconButton,
+    InputBase,
     MenuItem,
     Select,
     Toolbar,
+    Typography,
+    Drawer,
+    useTheme,
+    useMediaQuery,
 } from '@mui/material';
-import React, { useState } from 'react';
-import Logo from '../../assets/Imges/logo.png';
+
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Logo from '../../assets/Imges/logo.png';
 import './Header.css';
-// import Navbar from '../Navbar/Navbar';
 
 function Header() {
     const [category, setCategory] = useState('all');
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [drawerType, setDrawerType] = useState('');
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const handleChange = (event) => {
-        setCategory(event.target.value);
+    const handleCategoryChange = (e) => setCategory(e.target.value);
+    const toggleDrawer = (type = '') => {
+        setDrawerType(type);
+        setDrawerOpen(true);
     };
 
     return (
         <>
-            <AppBar sx={{ bgcolor: 'white', boxShadow: 'none', padding: 1 }}>
-                {/* GRID Layout for Toolbar */}
+            <AppBar position="static" sx={{ bgcolor: 'white', boxShadow: 'none', p: 1 }}>
                 <Toolbar
                     sx={{
-                        display: 'grid',
-                        gridTemplateAreas: `
-                            "logo search support icons"
-                        `,
-                        gridTemplateColumns: '2fr 6fr 2fr 2fr',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
                         gap: 2,
-                        paddingBottom:'20px'
                     }}
                 >
-                    {/* Logo Area */}
-                    <Box sx={{ gridArea: 'logo' }}>
-                        <img src={Logo} alt="logo.png" style={{ maxWidth: '100%', height: 'auto' }} />
+                    {/* Logo */}
+                    <Box className="logo-img" sx={{ flex: isMobile ? '1 1 100%' : '0 0 auto' }}>
+                        <img src={Logo} alt="Logo" className="responsive-logo" />
                     </Box>
 
-                    {/* Search Area with Category */}
-                    <Box
-                        size={{xs:'none'}}
-                        sx={{
-                            gridArea: 'search',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            paddingLeft:'20px',
-                            // gap: 1,
-                        }}
-                    >
-                        <Select
-                            value={category}
-                            onChange={handleChange}
-                            variant="outlined"
-                            sx={{
-                                bgcolor: '#f0f0f0',
-                                width: 180,
-                                height: 45,
-                                 padding:'0 8px',
-                                borderRadius: '8px 0 0 8px',
-
-                                '& fieldset': {
-                                    border: 'none',
-
-                                },
-                            }}
-                        >
-                            <MenuItem value="all">All Categories</MenuItem>
-                            <MenuItem value="food">Food</MenuItem>
-                            <MenuItem value="drinks">Drinks</MenuItem>
-                        </Select>
-
+                    {/* Search & Category (hide on xs-sm) */}
+                    {!isMobile && (
                         <Box
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                bgcolor: '#f0f0f0',
-                                px: 1,
-                                borderRadius: '0 8px 8px 0',
-                                height: 45,
-                                width: '100%',
-                               
+                                bgcolor: '#f5f5f5',
+                                borderRadius: 3,
+                                px: 2,
+                                py: 1,
+                                flexGrow: 1,
+                                mx: 2,
                             }}
                         >
-                            <input
-                                type="search"
-                                placeholder="Search For More Than 20,000 Products"
-                                className="header-input"
-                                style={{
-                                    border: 'none',
-                                    outline: 'none',
-                                    background: 'transparent',
-                                    flex: 1,
-                                    fontSize:'16px'
-                                }}
+                            <Select
+                                value={category}
+                                onChange={handleCategoryChange}
+                                variant="standard"
+                                disableUnderline
+                                sx={{ minWidth: 150, mr: 2 }}
+                            >
+                                <MenuItem value="all">All Categories</MenuItem>
+                                <MenuItem value="food">Food</MenuItem>
+                                <MenuItem value="drinks">Drinks</MenuItem>
+                            </Select>
+                            <InputBase
+                                placeholder="Search for more than 20,000 products"
+                                sx={{ flexGrow: 1 }}
                             />
-                            <SearchIcon sx={{ color: 'black' }} />
+                            <SearchIcon sx={{ ml: 1 }} />
                         </Box>
-                    </Box>
+                    )}
 
-                    {/* Support Section */}
-                    <Box sx={{ gridArea: 'support', color: 'black', }}>
-                        <p style={{ margin: 0, fontSize:'17px',paddingBottom:'5px', display: 'flex', justifyContent: 'end',color:'gray' }}>For Support</p>
-                        <Box sx={{ display: 'flex', justifyContent: 'end',fontSize:'20px',fontWeight:700 }}>+1800-010-0011</Box>
-                    </Box>
+                    {/* Contact + Icons */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 2,
+                            flexWrap: 'wrap',
+                            justifyContent: isMobile ? 'space-around' : 'flex-end',
+                            flex: isMobile ? '1 1 100%' : '0 0 auto',
+                        }}
+                    >
+                        {/* For Support */}
+                        {!isMobile && (
+                            <Box textAlign="right">
+                                <Typography variant="body2" color="gray">
+                                    For Support?
+                                </Typography>
+                                <Typography fontWeight="bold">+980-34984089</Typography>
+                            </Box>
+                        )}
 
-                    {/* Icons */}
-                    <Box sx={{ gridArea: 'icons', display: 'flex', justifyContent: 'center', }}>
-                        <IconButton >
-                            <AccountCircleIcon  sx={{fontSize:'35px',color:'black'}}/>
+                        <IconButton>
+                            <AccountCircleIcon />
                         </IconButton>
-                        <IconButton >
-                            <FavoriteBorderIcon sx={{fontSize:'35px',color:'black'}} />
+                        <IconButton>
+                            <FavoriteBorderIcon />
                         </IconButton>
+
+                        {/* Cart and Search Icon (xs to md only) */}
+                        {isMobile && (
+                            <>
+                                <IconButton onClick={() => toggleDrawer('cart')}>
+                                    <ShoppingCartIcon />
+                                </IconButton>
+                                <IconButton onClick={() => toggleDrawer('search')}>
+                                    <SearchIcon />
+                                </IconButton>
+                            </>
+                        )}
+
+                        {/* Cart Info (md and up) */}
+                        {!isMobile && (
+                            <Box textAlign="right">
+                                <Typography variant="body2" color="gray">
+                                    Your Cart
+                                </Typography>
+                                <Typography fontWeight="bold">$1290.00</Typography>
+                            </Box>
+                        )}
                     </Box>
                 </Toolbar>
-                <Divider sx={{ border: '1px solid gray', opacity: 0.2, }} />
+                <Divider />
             </AppBar>
-            {/* <Navbar /> */}
+
+            {/* Drawer Sidebar (Dynamic Content) */}
+            <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+                <Box width={300} p={2}>
+                    {drawerType === 'search' && (
+                        <>
+                            <Typography variant="h6" gutterBottom>Search Products</Typography>
+                            <InputBase
+                                fullWidth
+                                placeholder="Search here..."
+                                sx={{
+                                    border: '1px solid #ccc',
+                                    borderRadius: 2,
+                                    px: 2,
+                                    py: 1,
+                                }}
+                            />
+                        </>
+                    )}
+
+                    {drawerType === 'cart' && (
+                        <>
+                            <Typography variant="h6" gutterBottom>Your Cart</Typography>
+                            {/* Dummy Cart Content */}
+                            <Box mt={2}>
+                                <Typography>No items in cart.</Typography>
+                            </Box>
+                        </>
+                    )}
+                </Box>
+            </Drawer>
         </>
     );
 }
 
 export default Header;
-

@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {
     Card,
-    CardActions,
     CardContent,
     CardMedia,
-    Button,
     Typography,
     Grid,
-    Box
+    Box,
 } from '@mui/material';
 
 import Blog1 from '../../assets/Imges/post-thumb-1.jpg';
@@ -15,8 +13,7 @@ import Blog2 from '../../assets/Imges/post-thumb-2.jpg';
 import Blog3 from '../../assets/Imges/post-thumb-3.jpg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import FolderIcon from '@mui/icons-material/Folder';
-
-
+import './Blog.css';
 
 const blogData = [
     {
@@ -38,23 +35,47 @@ const blogData = [
 
 export default function Blog() {
     return (
-        <Box sx={{ px: 4, pt: 6,paddingBottom:'120px' }}>
-            <Typography variant="h5" fontWeight="bold" mb={4}>
+        <Box sx={{ px: { xs: 2, md: 4 }, pt: 6, pb:20 }}>
+            <Typography
+                variant="h5"
+                fontWeight="bold"
+                mb={4}
+                textAlign="start"
+                sx={{ fontSize: { xs: '24px', md: '32px' } }}
+            >
                 Latest Blog Posts
             </Typography>
 
-            <Grid container spacing={3} >
+            <Grid
+                container
+                spacing={4}
+                sx={{
+                    display: { xs: 'grid', md: 'flex' },
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    gap: { md: 2 }, // Adds spacing between cards in flex layout
+                }}
+            >
                 {blogData.map((item, index) => (
-                    <Grid item xs={12} sm={4} key={index}>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        key={index}
+                        sx={{
+                            flex: { md: '1 0 calc(33.333% - 16px)' }, // Adjusts card width in flex layout
+                        }}
+                    >
                         <Card
                             sx={{
-                                height: 'auto',
+                                height: '100%',
                                 borderRadius: 3,
                                 boxShadow: 3,
-                                width: '458px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between',
+                                overflow: 'hidden',
                             }}
                         >
                             <CardMedia
@@ -62,28 +83,55 @@ export default function Blog() {
                                 image={item.img}
                                 alt={item.title}
                                 sx={{
-                                    height: 320,
+                                    height: { xs: 200, md: 300 },
                                     width: '100%',
                                     objectFit: 'cover',
                                 }}
                             />
                             <CardContent>
-                                <Typography sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <Box>
-                                        <CalendarMonthIcon sx={{ fontSize: '18px', }} /><Box component='span' sx={{ paddingLeft: '10px' }}>22 Aug 2021</Box>
+                                <Typography
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        flexWrap: 'wrap',
+                                        fontSize: '14px',
+                                        color: 'text.secondary',
+                                    }}
+                                >
+                                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                        <CalendarMonthIcon sx={{ fontSize: '18px' }} />
+                                        <Box component="span" sx={{ pl: 1 }}>
+                                            22 Aug 2021
+                                        </Box>
                                     </Box>
-                                    <Box sx={{ paddingLeft: '14px' }}>
-                                        <FolderIcon sx={{ fontSize: '18px', }} /><Box component='span' sx={{ paddingLeft: '10px' }}>tips & tricks</Box>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 2 }}>
+                                        <FolderIcon sx={{ fontSize: '18px' }} />
+                                        <Box component="span" sx={{ pl: 1 }}>
+                                            tips & tricks
+                                        </Box>
                                     </Box>
                                 </Typography>
-                                <Typography gutterBottom variant="h5" component="div" sx={{paddingTop:'15px',fontWeight:700}}>
+                                <Typography
+                                    gutterBottom
+                                    variant="h6"
+                                    component="div"
+                                    sx={{ pt: 2, fontWeight: 700, fontSize: { xs: '16px', md: '18px' } }}
+                                >
                                     {item.title}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary" sx={{paddingTop:'12px'}}>
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                    sx={{
+                                        pt: 2,
+                                        fontSize: { xs: '14px', md: '16px' },
+                                        textAlign: 'justify',
+                                    }}
+                                >
                                     {item.desc}
                                 </Typography>
                             </CardContent>
-                            
                         </Card>
                     </Grid>
                 ))}

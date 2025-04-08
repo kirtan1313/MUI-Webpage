@@ -1,4 +1,69 @@
-.header-input{
-    width: 400px;
+.header-input {
+  width: 400px;
 }
 
+/* Header.css */
+
+.responsive-logo {
+  width: 150px;
+}
+
+
+@media (min-width: 1025px) {
+  .css-3x93rz-MuiToolbar-root {
+    -webkit-flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .responsive-logo {
+    width: 150px;
+  }
+  .css-3x93rz-MuiToolbar-root {
+    -webkit-flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
+  }
+  .css-akacsr{
+    gap: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-logo {
+    width: 150px;
+  }
+
+  .css-akacsr{
+    gap: 0 !important;
+  }
+
+  .css-3x93rz-MuiToolbar-root {
+    -webkit-flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
+  }
+
+  .css-3x93rz-MuiToolbar-root {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .responsive-logo {
+    width: 70%;
+  }
+
+  .logo-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .css-3x93rz-MuiToolbar-root {
+    -webkit-flex-wrap: wrap !important;
+    flex-wrap: wrap;
+    /* padding: 0; */
+  }
+}

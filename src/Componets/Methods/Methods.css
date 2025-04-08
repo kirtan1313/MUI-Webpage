@@ -1,0 +1,32 @@
+
+@media (max-width: 1145px) {
+    .method-wrap{
+        display: flex !important;
+        flex-direction: row !important;
+        /* flex-wrap: wrap; */
+        padding: 24px 0 !important;
+    } 
+}
+
+@media (max-width: 975px) {
+    .method-wrap{
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        padding: 24px 0 !important;
+    }  
+}
+
+@media (max-width: 768px) {
+    .method-wrap{
+        display: flex !important;
+        flex-direction: column !important;
+    }   
+}
+
+@media (max-width: 575px) {
+    .method-wrap{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}

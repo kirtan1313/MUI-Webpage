@@ -11,6 +11,9 @@ import icon1 from "../../assets/Imges/new-1.jpg";
 import icon2 from "../../assets/Imges/new-2.jpg";
 import icon3 from "../../assets/Imges/new-3.jpg";
 import icon4 from "../../assets/Imges/new-4.jpg";
+import './Newly.css'
+
+
 
 function Newly() {
     const categoryData = [

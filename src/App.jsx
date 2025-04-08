@@ -27,11 +27,11 @@ function App() {
       <Ads />
       <Purchase />
       <Popular />
-      <Blog />
-      <Application />
+       <Blog />
+     <Application />
       <Buttons />
-      <Methods />
-      <Footer />
+       <Methods />
+      <Footer /> 
     </>
   )
 }

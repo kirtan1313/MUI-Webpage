@@ -8,9 +8,10 @@ function Ads() {
         <Box
             sx={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, // Single column on small, two on medium and above
                 gap: 3,
                 pt: 4,
+                overflow: 'hidden', // Prevent content overflow
             }}
         >
             {/* Left Ad */}
@@ -19,14 +20,22 @@ function Ads() {
                     backgroundColor: '#F9EBE7',
                     borderRadius: 2,
                     display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     p: 3,
-                    height: '300px',
+                    height: { xs: 'auto', md: '300px' },
                 }}
             >
                 {/* Text Section */}
-                <Box>
+                <Box
+                    sx={{
+                        textAlign: { xs: 'center', md: 'left' },
+                        mb: { xs: 2, md: 0 },
+                        width: { xs: '100%', md: '50%' },
+                        overflow: 'hidden',
+                    }}
+                >
                     <Typography variant="h4" sx={{ color: 'orange' }} pb={2}>
                         Upto 25% Off
                     </Typography>
@@ -40,13 +49,15 @@ function Ads() {
                         <Button
                             variant="outlined"
                             sx={{
-                                borderColor: '#222', color: '#222',
-                                fontSize: '16px', transition: 'all 0.3s'
-                                , '&:hover': {
+                                borderColor: '#222',
+                                color: '#222',
+                                fontSize: '16px',
+                                transition: 'all 0.3s',
+                                '&:hover': {
                                     backgroundColor: '#000',
                                     color: '#fff',
-                                    borderColor: '#000'
-                                }
+                                    borderColor: '#000',
+                                },
                             }}
                         >
                             SHOP NOW
@@ -60,9 +71,10 @@ function Ads() {
                     src={ads1}
                     alt="Chocolate Muffins"
                     sx={{
-                        height: '100%',
-                        maxWidth: '350px',
+                        height: { xs: 'auto', md: '100%' },
+                        maxWidth: '50%',
                         objectFit: 'contain',
+                        mx: { xs: 'auto', md: 0 },
                     }}
                 />
             </Box>
@@ -73,14 +85,22 @@ function Ads() {
                     backgroundColor: '#E6F3FA',
                     borderRadius: 2,
                     display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     p: 3,
-                    height: '300px',
+                    height: { xs: 'auto', md: '300px' },
                 }}
             >
                 {/* Text Section */}
-                <Box>
+                <Box
+                    sx={{
+                        textAlign: { xs: 'center', md: 'left' },
+                        mb: { xs: 2, md: 0 },
+                        width: { xs: '100%', md: '50%' },
+                        overflow: 'hidden',
+                    }}
+                >
                     <Typography variant="h4" sx={{ color: 'orange' }} pb={2}>
                         Upto 25% Off
                     </Typography>
@@ -94,13 +114,15 @@ function Ads() {
                         <Button
                             variant="outlined"
                             sx={{
-                                borderColor: '#222', color: '#222',
-                                fontSize: '16px', transition: 'all 0.3s'
-                                , '&:hover': {
+                                borderColor: '#222',
+                                color: '#222',
+                                fontSize: '16px',
+                                transition: 'all 0.3s',
+                                '&:hover': {
                                     backgroundColor: '#000',
                                     color: '#fff',
-                                    borderColor: '#000'
-                                }
+                                    borderColor: '#000',
+                                },
                             }}
                         >
                             SHOP NOW
@@ -114,12 +136,12 @@ function Ads() {
                     src={ads2}
                     alt="Muffins Variety"
                     sx={{
-                        height: '100%',
-                        maxWidth: '350px',
+                        height: { xs: 'auto', md: '100%' },
+                        maxWidth: '50%',
                         objectFit: 'contain',
+                        mx: { xs: 'auto', md: 0 },
                     }}
                 />
-
             </Box>
         </Box>
     );

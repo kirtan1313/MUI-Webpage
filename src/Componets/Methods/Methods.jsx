@@ -5,6 +5,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import StoreIcon from '@mui/icons-material/Store';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import RedeemIcon from '@mui/icons-material/Redeem';
+import './Methods.css'
 
 function Methods() {
     const data = [
@@ -36,7 +37,11 @@ function Methods() {
     ];
 
     return (
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 3, p: 3,paddingTop:'60px' }}>
+        <Box 
+            className="method-wrap"
+        sx={{
+            display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 3, p: 3, paddingTop: '60px',
+        }}>
             {data.map((item, index) => {
                 const Icon = item.icon;
                 return (

@@ -10,6 +10,7 @@ import bananas from '../../assets/Imges/thumb-bananas.png';
 import biscuits from '../../assets/Imges/thumb-biscuits.png';
 import cucumber from '../../assets/Imges/thumb-cucumber.png';
 import milk from '../../assets/Imges/thumb-milk.png';
+import './Product.css'
 
 function ProductList() {
     const initialQuantities = Array(10).fill(0);
