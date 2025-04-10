@@ -119,9 +119,9 @@ function Header({cartProducts,wislistProduct}) {
                         {/* Cart and Search Icon (xs to md only) */}
                         {isMobile && (
                             <>
-                                <IconButton onClick={() => toggleDrawer('cart')}>
+                                {/* <IconButton onClick={() => toggleDrawer('cart')}>
                                     <ShoppingCartIcon />
-                                </IconButton>
+                                </IconButton> */}
                                 <IconButton onClick={() => toggleDrawer('search')}>
                                     <SearchIcon />
                                 </IconButton>
@@ -129,7 +129,7 @@ function Header({cartProducts,wislistProduct}) {
                         )}
 
                         {/* Cart Info (md and up) */}
-                        {!isMobile && (
+                        {/* {isMobile && ( */}
                             <Box textAlign="right" sx={{position:'relative'}}>
                                 <Link to="/cart">
                                     <AddShoppingCartIcon sx={{color:'gray',
@@ -148,14 +148,14 @@ function Header({cartProducts,wislistProduct}) {
                                    > {cartProducts.length}</Box>
                                 </Link>
                             </Box>
-                        )}
+                        {/* )} */}
                     </Box>
                 </Toolbar>
                 <Divider />
             </AppBar>
 
             {/* Drawer Sidebar (Dynamic Content) */}
-            <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+            {/* <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                 <Box width={300} p={2}>
                     {drawerType === 'search' && (
                         <>
@@ -176,14 +176,14 @@ function Header({cartProducts,wislistProduct}) {
                     {drawerType === 'cart' && (
                         <>
                             <Typography variant="h6" gutterBottom>Your Cart</Typography>
-                            {/* Dummy Cart Content */}
+                            
                             <Box mt={2}>
                                 <Typography>No items in cart.</Typography>
                             </Box>
                         </>
                     )}
                 </Box>
-            </Drawer>
+            </Drawer> */}
         </>
     );
 }

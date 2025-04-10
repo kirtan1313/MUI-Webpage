@@ -1,8 +1,24 @@
-import { Box, Button, Checkbox } from '@mui/material';
-import React from 'react';
+import { Box, Button, Checkbox, Typography } from '@mui/material';
+import React, { useState } from 'react';
 import PurchaseBg from '../../assets/Imges/bg-leaves-img-pattern.png';
 
 function Purchase() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState(false);
+
+    const handleSubmit = () => {
+        if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+            setEmailError(true);
+            return;
+        }
+        setEmailError(false);
+        console.log('Form submitted:', { name , email });
+
+        
+
+    };
+
     return (
         <Box
             sx={{
@@ -60,11 +76,10 @@ function Purchase() {
                         textAlign: 'center',
                         width: '100%',
                         maxWidth: '400px',
-                        // backgroundColor: 'white',
-                        // boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                     }}
                 >
                     <Box sx={{ fontSize: '14px', color: 'gray' }}>
+                        {/* Name Field */}
                         <Box
                             component="label"
                             sx={{
@@ -80,6 +95,8 @@ function Purchase() {
                             component="input"
                             placeholder="Name"
                             type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             sx={{
                                 outline: 'none',
                                 border: '1px solid #ccc',
@@ -90,8 +107,10 @@ function Purchase() {
                             }}
                         />
 
+                        {/* Email Field */}
                         <Box
                             component="label"
+                            required
                             sx={{
                                 paddingTop: '18px',
                                 display: 'flex',
@@ -106,6 +125,8 @@ function Purchase() {
                             component="input"
                             placeholder="abc@gmail.com"
                             type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             sx={{
                                 outline: 'none',
                                 border: '1px solid #ccc',
@@ -113,9 +134,23 @@ function Purchase() {
                                 borderRadius: '8px',
                                 fontSize: '16px',
                                 width: '100%',
+                                borderColor: emailError ? 'red' : '#ccc',
                             }}
                         />
+                        {emailError && (
+                            <Typography
+                                sx={{
+                                    color: 'red',
+                                    fontSize: '12px',
+                                    marginTop: '4px',
+                                    textAlign: 'left',
+                                }}
+                            >
+                                Please enter a valid email address.
+                            </Typography>
+                        )}
 
+                        {/* Newsletter Checkbox */}
                         <Box
                             sx={{
                                 display: 'flex',
@@ -130,6 +165,7 @@ function Purchase() {
                             </Box>
                         </Box>
 
+                        {/* Submit Button */}
                         <Button
                             sx={{
                                 width: '100%',
@@ -141,6 +177,7 @@ function Purchase() {
                                     backgroundColor: '#333',
                                 },
                             }}
+                            onClick={handleSubmit}
                         >
                             Submit
                         </Button>

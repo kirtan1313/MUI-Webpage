@@ -48,8 +48,9 @@ function Cart({ cartProducts, setCartProducts }) {
                         elevation={3}
                         sx={{
                             display: 'flex',
-                            flexDirection: 'row',
-                            width: 464,
+                            flexDirection:  { xs: 'column', sm: 'row' },
+                            flexWrap: { xs: 'wrap', sm: 'nowrap' },
+                            width: { xs: '100%', sm: 464 },
                             borderRadius: 3,
                             padding: 2,
                             overflow: 'hidden',
