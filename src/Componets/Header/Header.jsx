@@ -19,9 +19,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Logo from '../../assets/Imges/logo.png';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { Link } from 'react-router-dom'; 
 import './Header.css';
 
-function Header() {
+
+function Header({cartProducts,wislistProduct}) {
     const [category, setCategory] = useState('all');
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [drawerType, setDrawerType] = useState('');
@@ -93,6 +96,7 @@ function Header() {
                             flexWrap: 'wrap',
                             justifyContent: isMobile ? 'space-around' : 'flex-end',
                             flex: isMobile ? '1 1 100%' : '0 0 auto',
+                            alignItems:'center'
                         }}
                     >
                         {/* For Support */}
@@ -108,9 +112,9 @@ function Header() {
                         <IconButton>
                             <AccountCircleIcon />
                         </IconButton>
-                        <IconButton>
-                            <FavoriteBorderIcon />
-                        </IconButton>
+                        <Link to='/whisiblit'>
+                            <FavoriteBorderIcon sx={{color:'gray'}}/>
+                        </Link>
 
                         {/* Cart and Search Icon (xs to md only) */}
                         {isMobile && (
@@ -126,11 +130,23 @@ function Header() {
 
                         {/* Cart Info (md and up) */}
                         {!isMobile && (
-                            <Box textAlign="right">
-                                <Typography variant="body2" color="gray">
-                                    Your Cart
-                                </Typography>
-                                <Typography fontWeight="bold">$1290.00</Typography>
+                            <Box textAlign="right" sx={{position:'relative'}}>
+                                <Link to="/cart">
+                                    <AddShoppingCartIcon sx={{color:'gray',
+                                        cursor:'pointer'
+                                        
+                                    }}/>
+                                   <Box component='span'
+                                    sx={{
+                                        backgroundColor:'red',
+                                        color:'#E6F3FA',
+                                        borderRadius:'50%',
+                                        padding:'1px 6px',
+                                        position:'absolute',
+                                        top:0
+                                    }}
+                                   > {cartProducts.length}</Box>
+                                </Link>
                             </Box>
                         )}
                     </Box>

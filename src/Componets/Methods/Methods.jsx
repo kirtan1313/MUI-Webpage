@@ -40,7 +40,7 @@ function Methods() {
         <Box 
             className="method-wrap"
         sx={{
-            display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 3, p: 3, paddingTop: '60px',
+            display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 3, p: 3, paddingTop: '100px',paddingBottom:'80px'
         }}>
             {data.map((item, index) => {
                 const Icon = item.icon;

@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './NavbarHeader.css';
 
 function NavbarHeader() {
@@ -23,6 +24,18 @@ function NavbarHeader() {
   const handleChangeNav = (event) => setNav(event.target.value);
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
 
+  const navItems = [
+    { label: 'Home', path: '/' }, // Add a route path for Home
+    { label: 'Women', path: '/women' },
+    { label: 'Men', path: '/men' },
+    { label: 'Kids', path: '/kids' },
+    { label: 'Accessories', path: '/accessories' },
+    { label: 'Pages', path: '/pages' },
+    { label: 'Brand', path: '/brand' },
+    { label: 'Sales', path: '/sales' },
+    { label: 'Blog', path: '/blog' },
+  ];
+
   return (
     <>
       <Box>
@@ -31,7 +44,6 @@ function NavbarHeader() {
             padding: 1,
             display: 'flex',
             alignItems: 'center',
-            // justifyContent: 'space-between',
           }}
         >
           {/* Department Select */}
@@ -69,22 +81,23 @@ function NavbarHeader() {
                 cursor: 'pointer',
               }}
             >
-              {['Women', 'Men', 'Kids', 'Accessories', 'Pages', 'Brand', 'Sales', 'Blog'].map(
-                (item, index) => (
-                  <Typography
-                    key={index}
-                    sx={{
-                      color: 'gray',
-                      transition: '0.3s',
-                      '&:hover': {
-                        color: 'black',
-                      },
-                    }}
-                  >
-                    {item}
-                  </Typography>
-                )
-              )}
+              {navItems.map((item, index) => (
+                <Typography
+                  key={index}
+                  component={Link} // Use Link for navigation
+                  to={item.path} // Specify the route
+                  sx={{
+                    textDecoration: 'none', // Remove underline
+                    color: 'gray',
+                    transition: '0.3s',
+                    '&:hover': {
+                      color: 'black',
+                    },
+                  }}
+                >
+                  {item.label}
+                </Typography>
+              ))}
             </Box>
           )}
         </Box>
@@ -124,23 +137,24 @@ function NavbarHeader() {
               <MenuItem value={4}>Chocolates</MenuItem>
             </Select>
           </Box>
-          {['Women', 'Men', 'Kids', 'Accessories', 'Pages', 'Brand', 'Sales', 'Blog'].map(
-            (item, index) => (
-              <Typography
-                key={index}
-                sx={{
-                  color: 'gray',
-                  transition: '0.3s',
-                  '&:hover': {
-                    color: 'black',
-                  },
-                  cursor: 'pointer',
-                }}
-              >
-                {item}
-              </Typography>
-            )
-          )}
+          {navItems.map((item, index) => (
+            <Typography
+              key={index}
+              component={Link} // Use Link for navigation
+              to={item.path} // Specify the route
+              sx={{
+                textDecoration: 'none', // Remove underline
+                color: 'gray',
+                transition: '0.3s',
+                '&:hover': {
+                  color: 'black',
+                },
+                cursor: 'pointer',
+              }}
+            >
+              {item.label}
+            </Typography>
+          ))}
         </Box>
       </Drawer>
     </>

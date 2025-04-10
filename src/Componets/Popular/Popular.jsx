@@ -66,19 +66,19 @@ const PrevArrow = ({ onClick }) => (
 );
 
 function Popular() {
-    const [quantities, setQuantities] = useState(Array(products.length).fill(0));
+    // const [quantities, setQuantities] = useState(Array(products.length).fill(0));
 
-    const handleIncrement = (index) => {
-        const updated = [...quantities];
-        updated[index] += 1;
-        setQuantities(updated);
-    };
+    // const handleIncrement = (index) => {
+    //     const updated = [...quantities];
+    //     updated[index] += 1;
+    //     setQuantities(updated);
+    // };
 
-    const handleDecrement = (index) => {
-        const updated = [...quantities];
-        if (updated[index] > 0) updated[index] -= 1;
-        setQuantities(updated);
-    };
+    // const handleDecrement = (index) => {
+    //     const updated = [...quantities];
+    //     if (updated[index] > 0) updated[index] -= 1;
+    //     setQuantities(updated);
+    // };
 
     const settings = {
         dots: false,
@@ -143,7 +143,7 @@ function Popular() {
                                 {product.price}
                             </Typography>
 
-                            <Box display="flex" justifyContent="center" alignItems="center" mt={1.5} px={1}>
+                            {/* <Box display="flex" justifyContent="center" alignItems="center" mt={1.5} px={1}>
                                 <Box display="flex" alignItems="center" gap={1}>
                                     <Button variant="outlined" size="small" sx={{ minWidth: '28px', height: '28px' }} onClick={() => handleDecrement(index)}>
                                         <RemoveIcon fontSize="small" />
@@ -153,7 +153,7 @@ function Popular() {
                                         <AddIcon fontSize="small" />
                                     </Button>
                                 </Box>
-                            </Box>
+                            </Box> */}
 
                             <Button fullWidth variant="contained" color="primary" sx={{ mt: 1 }}>
                                 Add to Cart
