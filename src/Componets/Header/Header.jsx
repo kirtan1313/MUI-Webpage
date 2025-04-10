@@ -138,7 +138,7 @@ function Header({cartProducts,wislistProduct}) {
                                     }}/>
                                    <Box component='span'
                                     sx={{
-                                        backgroundColor:'red',
+                                        backgroundColor:'skyblue',
                                         color:'#E6F3FA',
                                         borderRadius:'50%',
                                         padding:'1px 6px',
